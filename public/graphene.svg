@@ -2,8 +2,8 @@
   <!-- Background Gradient -->
   <defs>
     <linearGradient id="grapheneGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#FFFFFF" />
-      <stop offset="100%" stop-color="#FFFFFF" />
+      <stop offset="0%" stop-color="#87CEEB" />
+      <stop offset="100%" stop-color="#87CEEB" />
     </linearGradient>
   </defs>
 
@@ -20,7 +20,7 @@
   </g>
 
   <!-- Carbon Atoms -->
-  <g fill="#FFFFFF">
+  <g fill="#87CEEB">
     <circle cx="100" cy="50" r="4" />
     <circle cx="125" cy="65" r="4" />
     <circle cx="75" cy="65" r="4" />
