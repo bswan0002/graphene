@@ -1,6 +1,11 @@
 import { createTheme } from "@mui/material/styles";
 import { colors } from "./colors";
-import { textDisabled, textPrimary, textSecondary } from "./tokens";
+import {
+  borderSubtle00,
+  textDisabled,
+  textPrimary,
+  textSecondary,
+} from "./tokens";
 
 export const theme = createTheme({
   // https://carbondesignsystem.com/elements/typography/overview/#sans-serif-font-stack
@@ -40,20 +45,31 @@ export const theme = createTheme({
       light: colors.red[50],
       dark: colors.red[70],
     },
+    divider: borderSubtle00,
   },
   shape: {
     borderRadius: 0,
   },
   components: {
+    /**
+     * Reference carbon/packages/styles/scss/components:
+     * https://github.com/carbon-design-system/carbon/tree/main/packages/styles/scss/components
+     */
+    MuiAccordionSummary: {
+      styleOverrides: {
+        root: {
+          minHeight: "32px",
+        },
+        content: {
+          margin: 0,
+        },
+      },
+    },
     MuiButtonBase: {
       defaultProps: {
         disableRipple: true,
       },
     },
-    /**
-     * Reference carbon/packages/styles/scss/components:
-     * https://github.com/carbon-design-system/carbon/tree/main/packages/styles/scss/components
-     */
     MuiButton: {
       styleOverrides: {
         root: {
