@@ -1,5 +1,6 @@
-import { alpha, createTheme } from "@mui/material/styles";
+import { createTheme } from "@mui/material/styles";
 import { colors } from "./colors";
+import { textDisabled, textPrimary, textSecondary } from "./tokens";
 
 export const theme = createTheme({
   // https://carbondesignsystem.com/elements/typography/overview/#sans-serif-font-stack
@@ -21,9 +22,9 @@ export const theme = createTheme({
   palette: {
     // https://carbondesignsystem.com/elements/color/tokens/#text
     text: {
-      primary: colors.gray[100],
-      secondary: colors.gray[70],
-      disabled: alpha(colors.gray[100], 0.25),
+      primary: textPrimary,
+      secondary: textSecondary,
+      disabled: textDisabled,
     },
     // Carbon's tokens are more granular than those in MUI. As such, there is no single "primary" token. However,
     // Blue 60 is used in numerous places that would translate to MUI's primary.main token, e.g. for Carbon's $button-primary
@@ -43,6 +44,10 @@ export const theme = createTheme({
         disableRipple: true,
       },
     },
+    /**
+     * Reference carbon/packages/styles/scss/components:
+     * https://github.com/carbon-design-system/carbon/tree/main/packages/styles/scss/components
+     */
     MuiButton: {
       styleOverrides: {
         root: {
