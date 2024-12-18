@@ -8,9 +8,11 @@ type Props = {
 
 export const MuiBlock = ({ sx, children }: Props) => {
   return (
-    <Box sx={sx}>
+    <>
       <ScopedCssBaseline />
-      <ThemeProvider theme={theme}>{children}</ThemeProvider>
-    </Box>
+      <Box sx={sx}>
+        <ThemeProvider theme={theme}>{children}</ThemeProvider>
+      </Box>
+    </>
   );
 };

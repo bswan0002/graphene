@@ -7,6 +7,16 @@ export const theme = createTheme({
     fontFamily: ["IBM Plex Sans", "Helvetica Neue", "Arial", "sans-serif"].join(
       ","
     ),
+    // https://carbondesignsystem.com/elements/typography/overview/#weights
+    fontWeightLight: 300,
+    fontWeightRegular: 400,
+    fontWeightMedium: 400,
+    fontWeightBold: 600,
+    button: {
+      fontWeight: 400,
+      textTransform: "none",
+      lineHeight: 1.3,
+    },
   },
   palette: {
     // https://carbondesignsystem.com/elements/color/tokens/#text
@@ -29,16 +39,25 @@ export const theme = createTheme({
   },
   components: {
     MuiButtonBase: {
-      styleOverrides: {
-        root: {
-          // Specificity hack
-          "&.MuiButtonBase-root": {
-            textTransform: "none",
-          },
-        },
-      },
       defaultProps: {
         disableRipple: true,
+      },
+    },
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          fontSize: "0.875rem",
+          boxShadow: "none",
+        },
+        sizeLarge: {
+          padding: "14px 63px 14px 15px",
+        },
+        sizeMedium: {
+          padding: "10px 63px 10px 15px",
+        },
+        sizeSmall: {
+          padding: "6px 63px 6px 15px",
+        },
       },
     },
   },
