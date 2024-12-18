@@ -17,6 +17,7 @@ export const theme = createTheme({
       fontWeight: 400,
       textTransform: "none",
       lineHeight: 1.3,
+      letterSpacing: "0.16px",
     },
   },
   palette: {
@@ -33,6 +34,11 @@ export const theme = createTheme({
       main: colors.blue[60],
       light: colors.blue[50],
       dark: colors.blue[70],
+    },
+    error: {
+      main: colors.red[60],
+      light: colors.red[50],
+      dark: colors.red[70],
     },
   },
   shape: {
@@ -53,15 +59,27 @@ export const theme = createTheme({
         root: {
           fontSize: "0.875rem",
           boxShadow: "none",
+          borderWidth: "0.75px",
+          variants: [
+            {
+              props: { color: "primary" },
+              style: {
+                borderColor: colors.blue[60],
+              },
+            },
+          ],
         },
         sizeLarge: {
           padding: "14px 63px 14px 15px",
+          minHeight: "48px",
         },
         sizeMedium: {
           padding: "10px 63px 10px 15px",
+          minHeight: "40px",
         },
         sizeSmall: {
           padding: "6px 63px 6px 15px",
+          minHeight: "32px",
         },
       },
     },

@@ -1,28 +1,21 @@
-import { Button, Typography } from "@mui/material";
+import { Button } from "@mui/material";
 import { Button as CButton } from "@carbon/react";
-import { CarbonBlock } from "./CarbonBlock";
-import { MuiBlock } from "./MuiBlock";
+
+import { Compare } from "./layouts/Compare";
 
 export const Buttons = () => {
   return (
-    <>
-      <a
-        href="https://carbondesignsystem.com/components/button/usage/"
-        target="_blank"
-      >
-        {"Carbon Design > Button"}
-      </a>
-      <div style={{ display: "flex", padding: "16px 24px", gap: "16px" }}>
-        <MuiBlock
-          sx={{
-            flexGrow: 1,
-            display: "flex",
-            flexDirection: "column",
-            gap: "16px",
-            alignItems: "flex-start",
-          }}
+    <Compare
+      intro={
+        <a
+          href="https://carbondesignsystem.com/components/button/usage/"
+          target="_blank"
         >
-          <Typography>MUI</Typography>
+          {"Carbon Design > Button"}
+        </a>
+      }
+      mui={
+        <>
           <Button size="large" variant="contained">
             Lg Primary
           </Button>
@@ -32,25 +25,16 @@ export const Buttons = () => {
           <Button size="small" variant="contained">
             Sm Primary
           </Button>
-          <Button size="large" variant="outlined">
-            Lg Outlined
-          </Button>
-          <Button size="medium" variant="outlined">
-            Md Outlined
-          </Button>
           <Button size="small" variant="outlined">
             Sm Outlined
           </Button>
-        </MuiBlock>
-        <CarbonBlock
-          style={{
-            flexGrow: 1,
-            display: "flex",
-            flexDirection: "column",
-            gap: "16px",
-            alignItems: "flex-start",
-          }}
-        >
+          <Button size="small" variant="contained" color="error">
+            Sm Error
+          </Button>
+        </>
+      }
+      carbon={
+        <>
           <CButton size="lg" kind="primary">
             Lg Primary
           </CButton>
@@ -60,17 +44,14 @@ export const Buttons = () => {
           <CButton size="sm" kind="primary">
             Sm Primary
           </CButton>
-          <CButton size="lg" kind="tertiary">
-            Lg Tertiary
-          </CButton>
-          <CButton size="md" kind="tertiary">
-            Md Tertiary
-          </CButton>
           <CButton size="sm" kind="tertiary">
             Sm Tertiary
           </CButton>
-        </CarbonBlock>
-      </div>
-    </>
+          <CButton size="sm" kind="danger">
+            Sm Danger
+          </CButton>
+        </>
+      }
+    />
   );
 };
