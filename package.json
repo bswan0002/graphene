@@ -23,6 +23,7 @@
     "vite": "6.0.3"
   },
   "dependencies": {
+    "@carbon/react": "^1.72.0",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
     "@fontsource/ibm-plex-sans": "^5.1.0",

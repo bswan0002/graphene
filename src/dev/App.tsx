@@ -2,21 +2,16 @@ import "@fontsource/ibm-plex-sans/300.css";
 import "@fontsource/ibm-plex-sans/400.css";
 import "@fontsource/ibm-plex-sans/500.css";
 import "@fontsource/ibm-plex-sans/700.css";
+import "./index.scss";
 
-import {
-  Box,
-  Button,
-  CssBaseline,
-  ThemeProvider,
-  Typography,
-} from "@mui/material";
-import { theme } from "../lib/theme";
+import { Box, Button, Typography } from "@mui/material";
+import { Button as CButton } from "@carbon/react";
+import { MuiBlock } from "./MuiBlock";
 
 export function App() {
   return (
     <>
-      <CssBaseline />
-      <ThemeProvider theme={theme}>
+      <MuiBlock>
         <Box sx={{ p: "16px 24px" }}>
           <Typography variant="h1">Graphene UI</Typography>
           <Typography>
@@ -25,7 +20,8 @@ export function App() {
           </Typography>
           <Button variant="contained">Click me!</Button>
         </Box>
-      </ThemeProvider>
+      </MuiBlock>
+      <CButton>Click me</CButton>
     </>
   );
 }
