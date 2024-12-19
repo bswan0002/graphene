@@ -14,8 +14,7 @@ import {
 import { Link, Outlet } from "react-router-dom";
 import { ChevronDown } from "@carbon/icons-react";
 import { Hexagon } from "react-feather";
-import { borderSubtle00, textInverse, textSecondary } from "../../lib/tokens";
-import { body, heading } from "../../lib/text";
+import { borderSubtle00, textInverse } from "../../lib/tokens";
 import { gray100, gray80 } from "../../lib/colors";
 
 const DRAWER_WIDTH = 280;
@@ -57,7 +56,7 @@ const NavSection = ({
     elevation={0}
   >
     <AccordionSummary expandIcon={<ChevronDown />}>
-      <Typography sx={{ ...heading["compact-01"], color: textSecondary }}>
+      <Typography variant="heading-compact-01" color="textSecondary">
         {title}
       </Typography>
     </AccordionSummary>
@@ -90,11 +89,10 @@ export const DocsLayout = () => {
       >
         <Toolbar>
           <Typography
-            variant="h6"
+            variant="body-compact-02"
             component={Link}
             to="/"
             sx={{
-              ...body["body-compact-02"],
               fontWeight: 600,
               color: "inherit",
               textDecoration: "none",
@@ -133,44 +131,44 @@ export const DocsLayout = () => {
           <NavSection
             title="About Graphene"
             items={[
-              { to: "/docs/goals", text: "Goals" },
-              { to: "/docs/status", text: "Status" },
+              { to: "/goals", text: "Goals" },
+              { to: "/status", text: "Status" },
             ]}
           />
           <NavSection
             title="Getting Started"
             items={[
-              { to: "/docs/quick-start", text: "Quick Start" },
-              { to: "/docs/tutorial", text: "Tutorial" },
+              { to: "/quick-start", text: "Quick Start" },
+              { to: "/tutorial", text: "Tutorial" },
             ]}
           />
           <Divider sx={{ m: "8px 16px", backgroundColor: borderSubtle00 }} />
           <NavSection
             title="Migrating"
             items={[
-              { to: "/docs/guide", text: "Guide" },
-              { to: "/docs/faqs", text: "FAQs" },
+              { to: "/guide", text: "Guide" },
+              { to: "/faqs", text: "FAQs" },
             ]}
           />
           <Divider sx={{ m: "8px 16px", backgroundColor: borderSubtle00 }} />
           <NavSection
             title="Components"
             items={[
-              { to: "/docs/components/overview", text: "Overview" },
-              { to: "/docs/components/button", text: "Button" },
+              { to: "/components/overview", text: "Overview" },
+              { to: "/components/button", text: "Button" },
             ]}
           />
           <NavSection
             title="Patterns"
             items={[
-              { to: "/docs/patterns/overview", text: "Overview" },
-              { to: "/docs/patterns/common-actions", text: "Common Actions" },
+              { to: "/patterns/overview", text: "Overview" },
+              { to: "/patterns/common-actions", text: "Common Actions" },
             ]}
           />
         </Box>
       </Drawer>
 
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+      <Box component="main" sx={{ width: "100%", minHeight: "100dvh" }}>
         <Toolbar /> {/* Spacer for AppBar */}
         <Outlet />
       </Box>

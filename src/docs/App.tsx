@@ -6,10 +6,15 @@ import { DocsLayout } from "./components/DocsLayout";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { theme } from "../lib/theme";
+import { ComponentsRoot } from "./routes/ComponentsRoot";
 
-const router = createBrowserRouter([{ path: "/", element: <DocsLayout /> }], {
-  future: { v7_relativeSplatPath: true },
-});
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <DocsLayout />,
+    children: [{ path: "/components/:component", element: <ComponentsRoot /> }],
+  },
+]);
 
 export const App = () => {
   return (

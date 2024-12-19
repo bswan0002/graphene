@@ -7,12 +7,38 @@ import {
   textSecondary,
 } from "./tokens";
 
+declare module "@mui/material/styles" {
+  interface TypographyVariants {
+    "heading-compact-01": React.CSSProperties;
+    "heading-07": React.CSSProperties;
+    "body-compact-01": React.CSSProperties;
+    "body-compact-02": React.CSSProperties;
+  }
+
+  interface TypographyVariantsOptions {
+    "heading-compact-01"?: React.CSSProperties;
+    "heading-07"?: React.CSSProperties;
+    "body-compact-01"?: React.CSSProperties;
+    "body-compact-02"?: React.CSSProperties;
+  }
+}
+
+// Update the Typography's variant prop options
+declare module "@mui/material/Typography" {
+  interface TypographyPropsVariantOverrides {
+    "heading-compact-01": true;
+    "heading-07": true;
+    "body-compact-01": true;
+    "body-compact-02": true;
+  }
+}
+
+const fontFamily = '"IBM Plex Sans", "Helvetica Neue", Arial, sans-serif';
+
 export const theme = createTheme({
   // https://carbondesignsystem.com/elements/typography/overview/#sans-serif-font-stack
   typography: {
-    fontFamily: ["IBM Plex Sans", "Helvetica Neue", "Arial", "sans-serif"].join(
-      ","
-    ),
+    fontFamily,
     // https://carbondesignsystem.com/elements/typography/overview/#weights
     fontWeightLight: 300,
     fontWeightRegular: 400,
@@ -23,6 +49,34 @@ export const theme = createTheme({
       textTransform: "none",
       lineHeight: 1.3,
       letterSpacing: "0.16px",
+    },
+    "heading-compact-01": {
+      fontFamily,
+      fontSize: "0.875rem",
+      lineHeight: "1.125rem",
+      fontWeight: 600,
+      letterSpacing: "0.16px",
+    },
+    "heading-07": {
+      fontFamily,
+      fontSize: "3.375rem",
+      lineHeight: "4rem",
+      fontWeight: 300,
+      letterSpacing: "0px",
+    },
+    "body-compact-01": {
+      fontFamily,
+      fontSize: "0.875rem",
+      lineHeight: "1.125rem",
+      fontWeight: 400,
+      letterSpacing: "0.16px",
+    },
+    "body-compact-02": {
+      fontFamily,
+      fontSize: "1rem",
+      lineHeight: "1.375rem",
+      fontWeight: 400,
+      letterSpacing: "0px",
     },
   },
   palette: {
