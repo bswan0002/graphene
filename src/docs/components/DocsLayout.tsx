@@ -142,7 +142,7 @@ export const DocsLayout = () => {
               { to: "/tutorial", text: "Tutorial" },
             ]}
           />
-          <Divider sx={{ m: "8px 16px", backgroundColor: borderSubtle00 }} />
+          <Divider sx={{ m: "8px 16px", borderColor: borderSubtle00 }} />
           <NavSection
             title="Migrating"
             items={[
@@ -150,7 +150,7 @@ export const DocsLayout = () => {
               { to: "/faqs", text: "FAQs" },
             ]}
           />
-          <Divider sx={{ m: "8px 16px", backgroundColor: borderSubtle00 }} />
+          <Divider sx={{ m: "8px 16px", borderColor: borderSubtle00 }} />
           <NavSection
             title="Components"
             items={[
@@ -167,7 +167,6 @@ export const DocsLayout = () => {
           />
         </Box>
       </Drawer>
-
       <Box component="main" sx={{ width: "100%", minHeight: "100dvh" }}>
         <Toolbar /> {/* Spacer for AppBar */}
         <Outlet />

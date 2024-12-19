@@ -1,6 +1,7 @@
 import { Box, Typography } from "@mui/material";
-import { gray80 } from "../../lib/colors";
+
 import { layer01 } from "../../lib/tokens";
+import { colors } from "../../lib/colors";
 
 type Props = {
   children: React.ReactNode;
@@ -23,7 +24,7 @@ export const Page = ({ children, title }: Props) => {
           color: "white",
           alignContent: "flex-end",
           padding: "0px 32px 32px 64px",
-          borderBottom: `1px solid ${gray80}`,
+          borderBottom: `1px solid ${colors.gray[80]}`,
         }}
       >
         <Typography component="h1" variant="heading-07">
