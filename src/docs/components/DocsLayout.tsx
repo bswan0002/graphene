@@ -10,11 +10,12 @@ import {
   Divider,
   Box,
 } from "@mui/material";
-import { Link, Outlet, useMatch } from "react-router-dom";
+import { Link, Outlet, useMatch, useMatches } from "react-router-dom";
 import { ChevronDown } from "@carbon/icons-react";
 import { Hexagon } from "react-feather";
 import { background, borderSubtle00, textInverse } from "../../lib/tokens";
 import { gray100, gray80 } from "../../lib/colors";
+import { useState } from "react";
 
 const DRAWER_WIDTH = 280;
 
@@ -76,26 +77,67 @@ const NavSection = ({
 }: {
   title: string;
   items: Array<{ to: string; text: string }>;
-}) => (
-  <Accordion
-    sx={{ border: 0, "::before": { display: "none" } }}
-    disableGutters
-    elevation={0}
-  >
-    <AccordionSummary expandIcon={<ChevronDown />}>
-      <Typography variant="heading-compact-01" color="textSecondary">
-        {title}
-      </Typography>
-    </AccordionSummary>
-    <AccordionDetails sx={{ p: 0 }}>
-      <List>
-        {items.map((item) => (
-          <NavItem key={item.to} {...item} />
-        ))}
-      </List>
-    </AccordionDetails>
-  </Accordion>
-);
+}) => {
+  const [isInitialRender, setIsInitialRender] = useState(true);
+  const [expanded, setExpanded] = useState(false);
+  const matches = useMatches();
+
+  const isMatch = matches.some((m) => items.find((i) => i.to === m.pathname));
+  const isActive = isMatch && !expanded;
+
+  if (isInitialRender) {
+    setIsInitialRender(false);
+    if (isMatch) {
+      setExpanded(true);
+    }
+  }
+
+  return (
+    <Accordion
+      expanded={expanded}
+      onChange={(_e, isExpanded) => setExpanded(isExpanded)}
+      sx={{ border: 0, "::before": { display: "none" } }}
+      disableGutters
+      elevation={0}
+    >
+      <AccordionSummary
+        sx={{
+          transition: "background-color .11s",
+          backgroundColor: isActive ? background.selected : background.white,
+          ":hover": {
+            backgroundColor: isActive ? background.selected : background.hover,
+          },
+          "::before": isActive
+            ? {
+                content: '""',
+                position: "absolute",
+                left: 0,
+                top: 0,
+                bottom: 0,
+                width: "3px",
+                backgroundColor: "primary.main",
+              }
+            : undefined,
+        }}
+        expandIcon={<ChevronDown />}
+      >
+        <Typography
+          variant="heading-compact-01"
+          color={isMatch ? "textPrimary" : "textSecondary"}
+        >
+          {title}
+        </Typography>
+      </AccordionSummary>
+      <AccordionDetails sx={{ p: 0 }}>
+        <List>
+          {items.map((item) => (
+            <NavItem key={item.to} {...item} />
+          ))}
+        </List>
+      </AccordionDetails>
+    </Accordion>
+  );
+};
 
 export const DocsLayout = () => {
   return (
