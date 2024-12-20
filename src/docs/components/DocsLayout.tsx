@@ -84,6 +84,7 @@ const NavSection = ({
 
   const isMatch = matches.some((m) => items.find((i) => i.to === m.pathname));
   const isActive = isMatch && !expanded;
+  console.log({ matches, items, isMatch });
 
   if (isInitialRender) {
     setIsInitialRender(false);
@@ -200,23 +201,23 @@ export const DocsLayout = () => {
           <NavSection
             title="About Graphene"
             items={[
-              { to: "/goals", text: "Goals" },
-              { to: "/status", text: "Status" },
+              { to: "/about/goals", text: "Goals" },
+              { to: "/about/status", text: "Status" },
             ]}
           />
           <NavSection
             title="Getting Started"
             items={[
-              { to: "/quick-start", text: "Quick Start" },
-              { to: "/tutorial", text: "Tutorial" },
+              { to: "/getting-started/quick-start", text: "Quick Start" },
+              { to: "/getting-started/tutorial", text: "Tutorial" },
             ]}
           />
           <Divider sx={{ m: "8px 16px", borderColor: borderSubtle00 }} />
           <NavSection
             title="Migrating"
             items={[
-              { to: "/guide", text: "Guide" },
-              { to: "/faqs", text: "FAQs" },
+              { to: "/migrating/guide", text: "Guide" },
+              { to: "/migrating/faqs", text: "FAQs" },
             ]}
           />
           <Divider sx={{ m: "8px 16px", borderColor: borderSubtle00 }} />

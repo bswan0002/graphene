@@ -10,8 +10,16 @@ import {
 } from "react-router-dom";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { theme } from "../lib/theme";
-import { Overview } from "./routes/components/Overview";
-import { Button } from "./routes/components/Button";
+import { PatternsOverview as PatternsOverview } from "./routes/PatternsOverview";
+import { PatternsCommonActions } from "./routes/PatternsCommonActions";
+import { ComponentsOverview } from "./routes/ComponentsOverview";
+import { ComponentsButton } from "./routes/ComponentsButton";
+import { MigratingGuide } from "./routes/MigratingGuide";
+import { MigratingFAQs } from "./routes/MigratingFAQs";
+import { StartQuickStart } from "./routes/StartQuickStart";
+import { StartTutorial } from "./routes/StartTutorial";
+import { AboutGoals } from "./routes/AboutGoals";
+import { AboutStatus } from "./routes/AboutStatus";
 
 const router = createBrowserRouter([
   {
@@ -19,11 +27,43 @@ const router = createBrowserRouter([
     element: <DocsLayout />,
     children: [
       {
+        path: "about",
+        children: [
+          { index: true, element: <Navigate to="./goals" /> },
+          { path: "goals", element: <AboutGoals /> },
+          { path: "status", element: <AboutStatus /> },
+        ],
+      },
+      {
+        path: "getting-started",
+        children: [
+          { index: true, element: <Navigate to="./quick-start" /> },
+          { path: "quick-start", element: <StartQuickStart /> },
+          { path: "tutorial", element: <StartTutorial /> },
+        ],
+      },
+      {
+        path: "migrating",
+        children: [
+          { index: true, element: <Navigate to="./guide" /> },
+          { path: "guide", element: <MigratingGuide /> },
+          { path: "faqs", element: <MigratingFAQs /> },
+        ],
+      },
+      {
         path: "components",
         children: [
           { index: true, element: <Navigate to="./overview" /> },
-          { path: "overview", element: <Overview /> },
-          { path: "button", element: <Button /> },
+          { path: "overview", element: <ComponentsOverview /> },
+          { path: "button", element: <ComponentsButton /> },
+        ],
+      },
+      {
+        path: "patterns",
+        children: [
+          { index: true, element: <Navigate to="./overview" /> },
+          { path: "overview", element: <PatternsOverview /> },
+          { path: "common-actions", element: <PatternsCommonActions /> },
         ],
       },
     ],
