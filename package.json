@@ -7,7 +7,8 @@
     "start": "vite --open",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "tsc": "./node_modules/.bin/tsc --noEmit --project tsconfig.app.json"
   },
   "devDependencies": {
     "@eslint/js": "9.15.0",

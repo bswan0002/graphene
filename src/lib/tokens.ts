@@ -45,15 +45,16 @@ import { alpha } from "@mui/material";
  * Tokens from https://github.com/carbon-design-system/carbon/blob/main/packages/themes/src/white.js
  */
 
-// Background
-export const background = white;
-export const backgroundInverse = gray80;
-export const backgroundBrand = blue60;
-export const backgroundActive = alpha(gray50, 0.5);
-export const backgroundHover = alpha(gray50, 0.12);
-export const backgroundInverseHover = gray80Hover;
-export const backgroundSelected = alpha(gray50, 0.2);
-export const backgroundSelectedHover = alpha(gray50, 0.32);
+export const background = {
+  white,
+  inverse: gray80,
+  brand: blue60,
+  active: alpha(gray50, 0.5),
+  hover: alpha(gray50, 0.12),
+  inverseHover: gray80Hover,
+  selected: alpha(gray50, 0.2),
+  selectedHover: alpha(gray50, 0.32),
+} as const;
 
 // Layer
 // layer-01

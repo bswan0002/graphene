@@ -10,10 +10,10 @@ import {
   Divider,
   Box,
 } from "@mui/material";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useMatch } from "react-router-dom";
 import { ChevronDown } from "@carbon/icons-react";
 import { Hexagon } from "react-feather";
-import { borderSubtle00, textInverse } from "../../lib/tokens";
+import { background, borderSubtle00, textInverse } from "../../lib/tokens";
 import { gray100, gray80 } from "../../lib/colors";
 
 const DRAWER_WIDTH = 280;
@@ -32,22 +32,43 @@ const Toolbar = ({ children }: { children?: React.ReactNode }) => (
   </Box>
 );
 
-const NavItem = ({ to, text }: { to: string; text: string }) => (
-  <ListItem
-    component={Link}
-    to={to}
-    sx={{
-      padding: "0px 16px 0px 32px",
-      minHeight: "32px",
-      color: "inherit",
-      textDecoration: "none",
-    }}
-  >
-    <Typography color="textSecondary" variant="body-compact-01">
-      {text}
-    </Typography>
-  </ListItem>
-);
+const NavItem = ({ to, text }: { to: string; text: string }) => {
+  const match = useMatch(to);
+  const isActive = match !== null;
+  return (
+    <ListItem
+      component={Link}
+      to={to}
+      sx={{
+        padding: "0px 16px 0px 32px",
+        minHeight: "32px",
+        transition: "background-color .11s",
+        backgroundColor: isActive ? background.selected : background.white,
+        ":hover": {
+          backgroundColor: isActive ? background.selected : background.hover,
+        },
+        "::before": isActive
+          ? {
+              content: '""',
+              position: "absolute",
+              left: 0,
+              top: 0,
+              bottom: 0,
+              width: "3px",
+              backgroundColor: "primary.main",
+            }
+          : undefined,
+      }}
+    >
+      <Typography
+        color={isActive ? "textPrimary" : "textSecondary"}
+        variant={isActive ? "heading-compact-01" : "body-compact-01"}
+      >
+        {text}
+      </Typography>
+    </ListItem>
+  );
+};
 
 const NavSection = ({
   title,
