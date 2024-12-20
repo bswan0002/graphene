@@ -23,6 +23,7 @@
     "vite": "6.0.3"
   },
   "dependencies": {
+    "@carbon/icons-react": "11.53.0",
     "@carbon/react": "1.72.0",
     "@emotion/react": "11.14.0",
     "@emotion/styled": "11.14.0",
@@ -30,6 +31,7 @@
     "@mui/material": "6.2.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",
+    "react-feather": "2.0.10",
     "react-router-dom": "6.28.0"
   }
 }
