@@ -4,7 +4,6 @@ import {
   Drawer,
   List,
   ListItem,
-  ListItemText,
   Accordion,
   AccordionSummary,
   AccordionDetails,
@@ -37,9 +36,16 @@ const NavItem = ({ to, text }: { to: string; text: string }) => (
   <ListItem
     component={Link}
     to={to}
-    sx={{ pl: 4, color: "inherit", textDecoration: "none" }}
+    sx={{
+      padding: "0px 16px 0px 32px",
+      minHeight: "32px",
+      color: "inherit",
+      textDecoration: "none",
+    }}
   >
-    <ListItemText primary={text} />
+    <Typography color="textSecondary" variant="body-compact-01">
+      {text}
+    </Typography>
   </ListItem>
 );
 

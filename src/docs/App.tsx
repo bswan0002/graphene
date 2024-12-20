@@ -3,16 +3,31 @@ import "@fontsource/ibm-plex-sans/400.css";
 import "@fontsource/ibm-plex-sans/600.css";
 import "./index.scss";
 import { DocsLayout } from "./components/DocsLayout";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  Navigate,
+  RouterProvider,
+} from "react-router-dom";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { theme } from "../lib/theme";
-import { ComponentsRoot } from "./routes/ComponentsRoot";
+import { Overview } from "./routes/components/Overview";
+import { Button } from "./routes/components/Button";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <DocsLayout />,
-    children: [{ path: "/components/:component", element: <ComponentsRoot /> }],
+    children: [
+      {
+        path: "components",
+        children: [
+          { index: true, element: <Navigate to="./overview" /> },
+          { path: "overview", element: <Overview /> },
+          { path: "button", element: <Button /> },
+        ],
+      },
+    ],
+    errorElement: <Navigate to="/" />,
   },
 ]);
 

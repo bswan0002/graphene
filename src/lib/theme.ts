@@ -23,7 +23,6 @@ declare module "@mui/material/styles" {
   }
 }
 
-// Update the Typography's variant prop options
 declare module "@mui/material/Typography" {
   interface TypographyPropsVariantOverrides {
     "heading-compact-01": true;
@@ -112,7 +111,7 @@ export const theme = createTheme({
     MuiAccordionSummary: {
       styleOverrides: {
         root: {
-          minHeight: "32px",
+          minHeight: "32px", // default size
         },
         content: {
           margin: 0,
