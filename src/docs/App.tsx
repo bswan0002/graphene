@@ -8,7 +8,7 @@ import {
   Navigate,
   RouterProvider,
 } from "react-router-dom";
-import { CssBaseline, ThemeProvider } from "@mui/material";
+import { CssBaseline, GlobalStyles, ThemeProvider } from "@mui/material";
 import { theme } from "../lib/theme";
 import { PatternsOverview as PatternsOverview } from "./routes/PatternsOverview";
 import { PatternsCommonActions } from "./routes/PatternsCommonActions";
@@ -20,6 +20,7 @@ import { StartQuickStart } from "./routes/StartQuickStart";
 import { StartTutorial } from "./routes/StartTutorial";
 import { AboutGoals } from "./routes/AboutGoals";
 import { AboutStatus } from "./routes/AboutStatus";
+import { ComponentsTabs } from "./routes/ComponentsTabs";
 
 const router = createBrowserRouter([
   {
@@ -56,6 +57,7 @@ const router = createBrowserRouter([
           { index: true, element: <Navigate to="./overview" /> },
           { path: "overview", element: <ComponentsOverview /> },
           { path: "button", element: <ComponentsButton /> },
+          { path: "tabs", element: <ComponentsTabs /> },
         ],
       },
       {
@@ -74,8 +76,13 @@ const router = createBrowserRouter([
 export const App = () => {
   return (
     <>
-      <CssBaseline />
       <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <GlobalStyles
+          styles={(theme) => ({
+            fontFamily: theme.typography.fontFamily,
+          })}
+        />
         <RouterProvider router={router} />
       </ThemeProvider>
     </>

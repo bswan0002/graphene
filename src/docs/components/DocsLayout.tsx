@@ -13,7 +13,7 @@ import {
 import { Link, Outlet, useMatch, useMatches } from "react-router-dom";
 import { ChevronDown } from "@carbon/icons-react";
 import { Hexagon } from "react-feather";
-import { background, borderSubtle00, textInverse } from "../../lib/tokens";
+import { background, borderSubtle01, textInverse } from "../../lib/tokens";
 import { gray100, gray80 } from "../../lib/colors";
 import { useState } from "react";
 
@@ -212,7 +212,7 @@ export const DocsLayout = () => {
               { to: "/getting-started/tutorial", text: "Tutorial" },
             ]}
           />
-          <Divider sx={{ m: "8px 16px", borderColor: borderSubtle00 }} />
+          <Divider sx={{ m: "8px 16px", borderColor: borderSubtle01 }} />
           <NavSection
             title="Migrating"
             items={[
@@ -220,12 +220,13 @@ export const DocsLayout = () => {
               { to: "/migrating/faqs", text: "FAQs" },
             ]}
           />
-          <Divider sx={{ m: "8px 16px", borderColor: borderSubtle00 }} />
+          <Divider sx={{ m: "8px 16px", borderColor: borderSubtle01 }} />
           <NavSection
             title="Components"
             items={[
               { to: "/components/overview", text: "Overview" },
               { to: "/components/button", text: "Button" },
+              { to: "/components/tabs", text: "Tabs" },
             ]}
           />
           <NavSection
