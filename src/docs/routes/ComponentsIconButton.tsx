@@ -1,8 +1,8 @@
 import { Page } from "../components/Page";
 import { AutoLinkHeading } from "../components/AutoLinkHeading";
 import { Box, IconButton, Typography } from "@mui/material";
-import { Code } from "../components/Code";
 import { Copy } from "@carbon/icons-react";
+import { Code } from "../components/Code";
 import { Button } from "@carbon/react";
 
 /**
@@ -68,30 +68,28 @@ export const ComponentsIconButton = () => {
       </AutoLinkHeading>
       <Code
         lang="tsx"
-        sx={{ m: "0px 0px 32px -32px" }}
-      >{`import { Typography } from "@mui/material";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { atomDark } from "react-syntax-highlighter/dist/esm/styles/prism";
-import { gray100 } from "../../lib/colors";
-
-type Props = {
-  lang: "tsx" | "typescript";
-  children: string;
-};
-
-export const Code = ({ lang, children }: Props) => {
-  return (
-    <SyntaxHighlighter
-      language={lang}
-      style={atomDark}
-      CodeTag={Typography}
-      codeTagProps={{ variant: "code-02" }}
-      customStyle={{ backgroundColor: gray100, borderRadius: 0 }}
-    >
-      {children}
-    </SyntaxHighlighter>
-  );
-};
+        sx={{ m: "0px 0px 32px -32px", maxWidth: "960px" }}
+      >{`import { Box, IconButton } from "@mui/material";
+import { Copy } from "@carbon/icons-react";
+        
+<Box
+  sx={{
+    display: "flex",
+    gap: "8px",
+    alignItems: "flex-start",
+    mb: "16px",
+  }}
+>
+  <IconButton color="secondary" size="small">
+    <Copy />
+  </IconButton>
+  <IconButton color="secondary" size="medium">
+    <Copy />
+  </IconButton>
+  <IconButton color="secondary" size="large">
+    <Copy />
+  </IconButton>
+</Box>
 `}</Code>
       <AutoLinkHeading variant="heading-06" containerSx={{ mb: "32px" }}>
         Another Section

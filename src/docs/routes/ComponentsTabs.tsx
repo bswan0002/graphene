@@ -33,14 +33,14 @@ export const ComponentsTabs = () => {
       </AutoLinkHeading>
       <Code
         lang="tsx"
-        sx={{ m: "0px 0px 32px -32px" }}
+        sx={{ m: "0px 0px 32px -32px", maxWidth: "960px" }}
       >{`import { Typography } from "@mui/material";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { atomDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { gray100 } from "../../lib/colors";
 
 type Props = {
-  lang: "tsx" | "";
+  lang: "tsx" | "typescript";
   children: string;
 };
 
