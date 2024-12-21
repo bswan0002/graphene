@@ -1,7 +1,8 @@
 import { createTheme } from "@mui/material/styles";
-import { colors } from "./colors";
+import { blue, colors } from "./colors";
 import {
   borderSubtle00,
+  button,
   textDisabled,
   textPrimary,
   textSecondary,
@@ -17,6 +18,7 @@ declare module "@mui/material/styles" {
     "body-compact-02": React.CSSProperties;
     "body-01": React.CSSProperties;
     "body-02": React.CSSProperties;
+    "code-02": React.CSSProperties;
   }
 
   interface TypographyVariantsOptions {
@@ -28,6 +30,7 @@ declare module "@mui/material/styles" {
     "body-compact-02"?: React.CSSProperties;
     "body-01"?: React.CSSProperties;
     "body-02"?: React.CSSProperties;
+    "code-02"?: React.CSSProperties;
   }
 }
 
@@ -41,10 +44,13 @@ declare module "@mui/material/Typography" {
     "body-compact-02": true;
     "body-01": true;
     "body-02": true;
+    "code-02": true;
   }
 }
 
 const fontFamily = '"IBM Plex Sans", "Helvetica Neue", Arial, sans-serif';
+const fontFamilyMono =
+  "'IBM Plex Mono', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', Courier, monospace";
 
 export const theme = createTheme({
   // https://carbondesignsystem.com/elements/typography/overview/#sans-serif-font-stack
@@ -117,6 +123,13 @@ export const theme = createTheme({
       fontWeight: 400,
       letterSpacing: "0px",
     },
+    "code-02": {
+      fontFamily: fontFamilyMono,
+      fontSize: "0.875rem",
+      lineHeight: "1.25rem",
+      fontWeight: 400,
+      letterSpacing: "0.32px",
+    },
   },
   palette: {
     // https://carbondesignsystem.com/elements/color/tokens/#text
@@ -132,6 +145,11 @@ export const theme = createTheme({
       main: colors.blue[60],
       light: colors.blue[50],
       dark: colors.blue[70],
+    },
+    secondary: {
+      main: colors.gray[80],
+      light: colors.gray[70],
+      dark: colors.gray[90],
     },
     error: {
       main: colors.red[60],
@@ -190,6 +208,52 @@ export const theme = createTheme({
           padding: "6px 63px 6px 15px",
           minHeight: "32px",
         },
+      },
+    },
+    MuiIconButton: {
+      styleOverrides: {
+        root: {
+          borderRadius: 0,
+          borderWidth: "1px",
+          borderStyle: "solid",
+          variants: [
+            {
+              props: { color: "secondary" },
+              style: ({ theme }) => ({
+                color: "white",
+                backgroundColor: theme.palette.secondary.main,
+                borderColor: theme.palette.secondary.main,
+                ":hover": {
+                  backgroundColor: button.secondaryHover,
+                },
+                ":active": {
+                  backgroundColor: button.secondaryActive,
+                },
+                ":focus": {
+                  borderColor: blue[60],
+                  boxShadow: `inset 0 0 0 1px ${blue[60]}, inset 0 0 0 2px white`,
+                },
+              }),
+            },
+            {
+              props: { size: "small" },
+              style: { padding: "7px" },
+            },
+            {
+              props: { size: "medium" },
+              style: { padding: "11px" },
+            },
+            {
+              props: { size: "large" },
+              style: { padding: "15px" },
+            },
+          ],
+        },
+      },
+    },
+    MuiTooltip: {
+      defaultProps: {
+        arrow: true,
       },
     },
   },

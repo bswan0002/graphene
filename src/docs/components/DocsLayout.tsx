@@ -16,6 +16,7 @@ import { Hexagon } from "react-feather";
 import { background, borderSubtle01, textInverse } from "../../lib/tokens";
 import { gray100, gray80 } from "../../lib/colors";
 import { useState } from "react";
+import { useOnRender } from "../hooks/useOnRender";
 
 const DRAWER_WIDTH = 280;
 
@@ -78,20 +79,17 @@ const NavSection = ({
   title: string;
   items: Array<{ to: string; text: string }>;
 }) => {
-  const [isInitialRender, setIsInitialRender] = useState(true);
   const [expanded, setExpanded] = useState(false);
   const matches = useMatches();
 
   const isMatch = matches.some((m) => items.find((i) => i.to === m.pathname));
   const isActive = isMatch && !expanded;
-  console.log({ matches, items, isMatch });
 
-  if (isInitialRender) {
-    setIsInitialRender(false);
+  useOnRender(() => {
     if (isMatch) {
       setExpanded(true);
     }
-  }
+  });
 
   return (
     <Accordion
@@ -226,6 +224,7 @@ export const DocsLayout = () => {
             items={[
               { to: "/components/overview", text: "Overview" },
               { to: "/components/button", text: "Button" },
+              { to: "/components/icon-button", text: "Icon Button" },
               { to: "/components/tabs", text: "Tabs" },
             ]}
           />

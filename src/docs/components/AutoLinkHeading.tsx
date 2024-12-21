@@ -1,6 +1,12 @@
 import { Link } from "@carbon/icons-react";
-import { styled, SxProps, Typography, TypographyProps } from "@mui/material";
-import { useEffect, useState } from "react";
+import {
+  styled,
+  type SxProps,
+  Typography,
+  type TypographyProps,
+} from "@mui/material";
+import { useState } from "react";
+import { useOnRender } from "../hooks/useOnRender";
 
 const scrollToElement = (id: string) => {
   const element = document.getElementById(id);
@@ -22,11 +28,11 @@ export const AutoLinkHeading = ({
 }: Props) => {
   const [id] = useState(() => children.toLowerCase().replace(/\s+/g, "-"));
 
-  useEffect(() => {
+  useOnRender(() => {
     if (window.location.hash === `#${id}`) {
       setTimeout(() => scrollToElement(id), 0);
     }
-  }, [id]);
+  });
 
   return (
     <HeadingWrapper sx={containerSx}>
