@@ -1,6 +1,7 @@
 import "@fontsource/ibm-plex-sans/300.css";
 import "@fontsource/ibm-plex-sans/400.css";
 import "@fontsource/ibm-plex-sans/600.css";
+import "@fontsource/ibm-plex-mono/400.css";
 import "./index.scss";
 import { DocsLayout } from "./components/DocsLayout";
 import {
@@ -21,6 +22,7 @@ import { StartTutorial } from "./routes/StartTutorial";
 import { AboutGoals } from "./routes/AboutGoals";
 import { AboutStatus } from "./routes/AboutStatus";
 import { ComponentsTabs } from "./routes/ComponentsTabs";
+import { ComponentsIconButton } from "./routes/ComponentsIconButton";
 
 const router = createBrowserRouter([
   {
@@ -58,6 +60,7 @@ const router = createBrowserRouter([
           { path: "overview", element: <ComponentsOverview /> },
           { path: "button", element: <ComponentsButton /> },
           { path: "tabs", element: <ComponentsTabs /> },
+          { path: "icon-button", element: <ComponentsIconButton /> },
         ],
       },
       {

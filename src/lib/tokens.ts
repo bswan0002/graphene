@@ -145,6 +145,12 @@ export const borderInteractive = blue60;
 // border
 export const borderDisabled = gray30;
 
+export const button = {
+  secondary: gray80,
+  secondaryHover: gray80Hover,
+  secondaryActive: gray60,
+} as const;
+
 // Text
 export const textPrimary = gray100;
 export const textSecondary = gray70;

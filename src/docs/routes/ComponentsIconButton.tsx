@@ -1,33 +1,68 @@
 import { Page } from "../components/Page";
 import { AutoLinkHeading } from "../components/AutoLinkHeading";
-import { Typography } from "@mui/material";
+import { Box, IconButton, Typography } from "@mui/material";
 import { Code } from "../components/Code";
+import { Copy } from "@carbon/icons-react";
+import { Button } from "@carbon/react";
 
 /**
- * @path /components/tabs
+ * @path /components/icon-button
  */
-export const ComponentsTabs = () => {
+export const ComponentsIconButton = () => {
   return (
-    <Page title="Tabs">
+    <Page title="Icon Button">
       <AutoLinkHeading variant="heading-06" containerSx={{ mb: "32px" }}>
-        Here is some text describing Tabs.
+        Here is some text describing Icon Buttons.
       </AutoLinkHeading>
-      {Array.from({ length: 4 }).map((_, i) => (
-        <Typography
-          key={i}
-          sx={{
-            mb: "32px",
-            display: "block",
-            width: { xs: "100%", md: "67%" },
-          }}
-          variant="body-02"
-        >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-          auctor, nisi eu tincidunt tincidunt, nunc nunc lacinia nunc, nec
-          tincidunt nunc nunc eu nunc. Sed euismod, nunc eu tincidunt tincidunt,
-          nu
+      <Box mb="32px">
+        <Typography component="p" mb="16px" variant="body-02">
+          MUI IconButton
         </Typography>
-      ))}
+        <Box
+          sx={{
+            display: "flex",
+            gap: "8px",
+            alignItems: "flex-start",
+            mb: "16px",
+          }}
+        >
+          <IconButton color="secondary" size="small">
+            <Copy />
+          </IconButton>
+          <IconButton color="secondary" size="medium">
+            <Copy />
+          </IconButton>
+          <IconButton color="secondary" size="large">
+            <Copy />
+          </IconButton>
+        </Box>
+        <Typography component="p" mb="16px" variant="body-02">
+          Carbon Button + `renderIcon` and `hasIconOnly`
+        </Typography>
+        <Box sx={{ display: "flex", gap: "8px", alignItems: "flex-start" }}>
+          <Button
+            renderIcon={Copy}
+            hasIconOnly
+            iconDescription="Copy to Clipboard"
+            size="sm"
+            kind="secondary"
+          />
+          <Button
+            renderIcon={Copy}
+            hasIconOnly
+            iconDescription="Copy to Clipboard"
+            size="md"
+            kind="secondary"
+          />
+          <Button
+            renderIcon={Copy}
+            hasIconOnly
+            iconDescription="Copy to Clipboard"
+            size="lg"
+            kind="secondary"
+          />
+        </Box>
+      </Box>
       <AutoLinkHeading variant="heading-06" containerSx={{ mb: "32px" }}>
         Code Example
       </AutoLinkHeading>
@@ -40,7 +75,7 @@ import { atomDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { gray100 } from "../../lib/colors";
 
 type Props = {
-  lang: "tsx" | "";
+  lang: "tsx" | "typescript";
   children: string;
 };
 
