@@ -31,7 +31,9 @@ export const Page = ({ children, title }: Props) => {
           {title}
         </Typography>
       </Box>
-      {children}
+      <Box sx={{ padding: "72px 32px 16px 64px", height: "100%" }}>
+        {children}
+      </Box>
     </Box>
   );
 };

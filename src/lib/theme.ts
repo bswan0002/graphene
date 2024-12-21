@@ -10,25 +10,37 @@ import {
 declare module "@mui/material/styles" {
   interface TypographyVariants {
     "heading-compact-01": React.CSSProperties;
+    "heading-03": React.CSSProperties;
+    "heading-06": React.CSSProperties;
     "heading-07": React.CSSProperties;
     "body-compact-01": React.CSSProperties;
     "body-compact-02": React.CSSProperties;
+    "body-01": React.CSSProperties;
+    "body-02": React.CSSProperties;
   }
 
   interface TypographyVariantsOptions {
     "heading-compact-01"?: React.CSSProperties;
+    "heading-03"?: React.CSSProperties;
+    "heading-06"?: React.CSSProperties;
     "heading-07"?: React.CSSProperties;
     "body-compact-01"?: React.CSSProperties;
     "body-compact-02"?: React.CSSProperties;
+    "body-01"?: React.CSSProperties;
+    "body-02"?: React.CSSProperties;
   }
 }
 
 declare module "@mui/material/Typography" {
   interface TypographyPropsVariantOverrides {
     "heading-compact-01": true;
+    "heading-03": true;
+    "heading-06": true;
     "heading-07": true;
     "body-compact-01": true;
     "body-compact-02": true;
+    "body-01": true;
+    "body-02": true;
   }
 }
 
@@ -56,6 +68,20 @@ export const theme = createTheme({
       fontWeight: 600,
       letterSpacing: "0.16px",
     },
+    "heading-03": {
+      fontFamily,
+      fontSize: "1.25rem",
+      lineHeight: "1.75rem",
+      fontWeight: 400,
+      letterSpacing: "0px",
+    },
+    "heading-06": {
+      fontFamily,
+      fontSize: "2.625rem",
+      lineHeight: "3.125rem",
+      fontWeight: 300,
+      letterSpacing: "0px",
+    },
     "heading-07": {
       fontFamily,
       fontSize: "3.375rem",
@@ -74,6 +100,20 @@ export const theme = createTheme({
       fontFamily,
       fontSize: "1rem",
       lineHeight: "1.375rem",
+      fontWeight: 400,
+      letterSpacing: "0px",
+    },
+    "body-01": {
+      fontFamily,
+      fontSize: "0.875rem",
+      lineHeight: "1.25rem",
+      fontWeight: 400,
+      letterSpacing: "0.16px",
+    },
+    "body-02": {
+      fontFamily,
+      fontSize: "1rem",
+      lineHeight: "1.5rem",
       fontWeight: 400,
       letterSpacing: "0px",
     },
