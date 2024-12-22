@@ -10,7 +10,13 @@ import {
   Divider,
   Box,
 } from "@mui/material";
-import { Link, Outlet, useMatch, useMatches } from "react-router-dom";
+import {
+  Link,
+  Outlet,
+  ScrollRestoration,
+  useMatch,
+  useMatches,
+} from "react-router-dom";
 import { ChevronDown } from "@carbon/icons-react";
 import { Hexagon } from "react-feather";
 import { background, borderSubtle01, textInverse } from "../../lib/tokens";
@@ -140,107 +146,110 @@ const NavSection = ({
 
 export const DocsLayout = () => {
   return (
-    <Box sx={{ display: "flex" }}>
-      <Box
-        component="header"
-        sx={{
-          position: "fixed",
-          width: "100%",
-          top: 0,
-          right: 0,
-          left: "auto",
-          zIndex: (theme) => theme.zIndex.drawer + 1,
-          backgroundColor: gray100,
-          borderBottom: `1px solid ${gray80}`,
-          color: textInverse,
-        }}
-      >
-        <Toolbar>
-          <Typography
-            variant="body-compact-02"
-            component={Link}
-            to="/"
-            sx={{
-              fontWeight: 600,
-              color: "inherit",
-              textDecoration: "none",
-              display: "flex",
-              alignItems: "center",
-              gap: "4px",
-            }}
-          >
-            <Hexagon />
-            Graphene
-          </Typography>
-          <TextField
-            size="small"
-            placeholder="Search..."
-            sx={{
-              bgcolor: gray80,
-              height: "100%",
-              ".MuiInputBase-root": { color: "white" },
-            }}
-          />
-        </Toolbar>
-      </Box>
-      <Drawer
-        variant="permanent"
-        sx={{
-          width: DRAWER_WIDTH,
-          flexShrink: 0,
-          [`& .MuiDrawer-paper`]: {
-            width: DRAWER_WIDTH,
-            boxSizing: "border-box",
-          },
-        }}
-      >
-        <Toolbar /> {/* Spacer for AppBar */}
-        <Box sx={{ overflow: "auto", pt: "16px" }}>
-          <NavSection
-            title="About Graphene"
-            items={[
-              { to: "/about/goals", text: "Goals" },
-              { to: "/about/status", text: "Status" },
-            ]}
-          />
-          <NavSection
-            title="Getting Started"
-            items={[
-              { to: "/getting-started/quick-start", text: "Quick Start" },
-              { to: "/getting-started/tutorial", text: "Tutorial" },
-            ]}
-          />
-          <Divider sx={{ m: "8px 16px", borderColor: borderSubtle01 }} />
-          <NavSection
-            title="Migrating"
-            items={[
-              { to: "/migrating/guide", text: "Guide" },
-              { to: "/migrating/faqs", text: "FAQs" },
-            ]}
-          />
-          <Divider sx={{ m: "8px 16px", borderColor: borderSubtle01 }} />
-          <NavSection
-            title="Components"
-            items={[
-              { to: "/components/overview", text: "Overview" },
-              { to: "/components/button", text: "Button" },
-              { to: "/components/icon-button", text: "Icon Button" },
-              { to: "/components/tabs", text: "Tabs" },
-            ]}
-          />
-          <NavSection
-            title="Patterns"
-            items={[
-              { to: "/patterns/overview", text: "Overview" },
-              { to: "/patterns/common-actions", text: "Common Actions" },
-            ]}
-          />
+    <>
+      <ScrollRestoration />
+      <Box sx={{ display: "flex" }}>
+        <Box
+          component="header"
+          sx={{
+            position: "fixed",
+            width: "100%",
+            top: 0,
+            right: 0,
+            left: "auto",
+            zIndex: (theme) => theme.zIndex.drawer + 1,
+            backgroundColor: gray100,
+            borderBottom: `1px solid ${gray80}`,
+            color: textInverse,
+          }}
+        >
+          <Toolbar>
+            <Typography
+              variant="body-compact-02"
+              component={Link}
+              to="/"
+              sx={{
+                fontWeight: 600,
+                color: "inherit",
+                textDecoration: "none",
+                display: "flex",
+                alignItems: "center",
+                gap: "4px",
+              }}
+            >
+              <Hexagon />
+              Graphene
+            </Typography>
+            <TextField
+              size="small"
+              placeholder="Search..."
+              sx={{
+                bgcolor: gray80,
+                height: "100%",
+                ".MuiInputBase-root": { color: "white" },
+              }}
+            />
+          </Toolbar>
         </Box>
-      </Drawer>
-      <Box component="main" sx={{ width: "100%", minHeight: "100dvh" }}>
-        <Toolbar /> {/* Spacer for AppBar */}
-        <Outlet />
+        <Drawer
+          variant="permanent"
+          sx={{
+            width: DRAWER_WIDTH,
+            flexShrink: 0,
+            [`& .MuiDrawer-paper`]: {
+              width: DRAWER_WIDTH,
+              boxSizing: "border-box",
+            },
+          }}
+        >
+          <Toolbar /> {/* Spacer for AppBar */}
+          <Box sx={{ overflow: "auto", pt: "16px" }}>
+            <NavSection
+              title="About Graphene"
+              items={[
+                { to: "/about/goals", text: "Goals" },
+                { to: "/about/status", text: "Status" },
+              ]}
+            />
+            <NavSection
+              title="Getting Started"
+              items={[
+                { to: "/getting-started/quick-start", text: "Quick Start" },
+                { to: "/getting-started/tutorial", text: "Tutorial" },
+              ]}
+            />
+            <Divider sx={{ m: "8px 16px", borderColor: borderSubtle01 }} />
+            <NavSection
+              title="Migrating"
+              items={[
+                { to: "/migrating/guide", text: "Guide" },
+                { to: "/migrating/faqs", text: "FAQs" },
+              ]}
+            />
+            <Divider sx={{ m: "8px 16px", borderColor: borderSubtle01 }} />
+            <NavSection
+              title="Components"
+              items={[
+                { to: "/components/overview", text: "Overview" },
+                { to: "/components/button", text: "Button" },
+                { to: "/components/icon-button", text: "Icon Button" },
+                { to: "/components/tabs", text: "Tabs" },
+              ]}
+            />
+            <NavSection
+              title="Patterns"
+              items={[
+                { to: "/patterns/overview", text: "Overview" },
+                { to: "/patterns/common-actions", text: "Common Actions" },
+              ]}
+            />
+          </Box>
+        </Drawer>
+        <Box component="main" sx={{ width: "100%", minHeight: "100dvh" }}>
+          <Toolbar /> {/* Spacer for AppBar */}
+          <Outlet />
+        </Box>
       </Box>
-    </Box>
+    </>
   );
 };
