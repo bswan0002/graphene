@@ -1,9 +1,11 @@
 import { Page } from "../components/Page";
 import { AutoLinkHeading } from "../components/AutoLinkHeading";
 import { Box, IconButton, Typography } from "@mui/material";
-import { Copy } from "@carbon/icons-react";
+import { Carbon, Copy } from "@carbon/icons-react";
 import { Code } from "../components/Code";
 import { Button } from "@carbon/react";
+import { LinkTile } from "../components/LinkTile";
+import { MuiIcon } from "../components/MuiIcon";
 
 /**
  * @path /components/icon-button
@@ -12,8 +14,20 @@ export const ComponentsIconButton = () => {
   return (
     <Page title="Icon Button">
       <AutoLinkHeading variant="heading-06" containerSx={{ mb: "32px" }}>
-        Here is some text describing Icon Buttons.
+        Documentation
       </AutoLinkHeading>
+      <Box sx={{ display: "flex", gap: "4px", mb: "32px", flexWrap: "wrap" }}>
+        <LinkTile
+          title="Carbon"
+          href="https://carbondesignsystem.com/components/button/usage/#icon-only-buttons"
+          icon={<Carbon size={32} />}
+        />
+        <LinkTile
+          title="MUI"
+          href="https://mui.com/material-ui/react-button/#icon-button"
+          icon={<MuiIcon sx={{ fontSize: "2rem" }} />}
+        />
+      </Box>
       <Box mb="32px">
         <Typography component="p" mb="16px" variant="body-02">
           MUI IconButton
