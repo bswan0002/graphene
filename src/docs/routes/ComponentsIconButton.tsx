@@ -13,10 +13,18 @@ import { MuiIcon } from "../components/MuiIcon";
 export const ComponentsIconButton = () => {
   return (
     <Page title="Icon Button">
-      <AutoLinkHeading variant="heading-06" containerSx={{ mb: "32px" }}>
+      <AutoLinkHeading variant="heading-06" containerSx={{ mb: "24px" }}>
         Documentation
       </AutoLinkHeading>
-      <Box sx={{ display: "flex", gap: "4px", mb: "32px", flexWrap: "wrap" }}>
+      <Box
+        sx={{
+          display: "flex",
+          gap: "4px",
+          mb: "64px",
+          flexWrap: "wrap",
+          ml: "-16px",
+        }}
+      >
         <LinkTile
           title="Carbon"
           href="https://carbondesignsystem.com/components/button/usage/#icon-only-buttons"
