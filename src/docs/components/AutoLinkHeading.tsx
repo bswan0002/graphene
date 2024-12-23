@@ -53,7 +53,7 @@ export const AutoLinkHeading = ({
 
 const HeadingWrapper = styled("div")({
   position: "relative",
-  "&:hover .autolink-icon": {
+  "&:hover .autolink-icon, &:focus-within .autolink-icon": {
     opacity: 1,
   },
 });
@@ -68,4 +68,8 @@ const LinkIcon = styled("a")`
   "&:hover": {
     opacity: 1;
   }
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;

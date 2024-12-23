@@ -24,6 +24,7 @@ export const IconButtonDemo = () => {
       sx={{
         margin: "0px 0px 32px -16px",
         background: "white",
+        maxWidth: "960px",
       }}
     >
       <Box
